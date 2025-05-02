@@ -1,7 +1,22 @@
-Super easy to use: just put the file json_decode_sane.php into your code base and include it (require_once('json_decode_sane.php') or copy the functions json_decode_sane and findJsonErrors to your php script.
-Then just call json_decode_sane($s), where $s is the JSON string you want to parse. It will return the parse result, just as json_decode does, or throw an exception with helpful info when parsing failed.
-The info in the exception message comprises a useful explanation of the error, the exact line number and character position of the error location, the text of the line containing the error and a short context of the error to give you fast, precise info.
+Super easy to use:
+Just place the file json_decode_sane.php into your codebase and include it with:
+require_once('json_decode_sane.php');
+Alternatively, you can copy the functions json_decode_sane and findJsonErrors directly into your script.
 
-As a bonus, you can also use the function findJsonErrors($s) diretly for syntax analysis of a JSON string. It returns an array of all errors found (the Exception from json_decode_sane provides only the first error location; anyway that's what you are usually interested in and we want to keep the Exception concise).
+Then, simply call:
+json_decode_sane($s);
+Where $s is the JSON string you want to parse. It behaves like json_decode, returning the parsed result, but throws an exception with helpful information if parsing fails.
 
-json_decode_sane calls the native json_deocde and only in case this fails it calls findJsonErrors to get the error info. Thus for good JSON strings the parsing remains fast and only in case of errors the slower error parsing is done.
+The exception message includes:
+A clear explanation of the error,
+The exact line number and character position of the error,
+The full line of text where the error occurred,
+A short surrounding context, helping you debug quickly and precisely.
+
+Bonus:
+You can also use findJsonErrors($s) directly to perform a syntax check of a JSON string. It returns an array of all errors found.
+(Whereas json_decode_sane() only reports the first error in an exception—usually sufficient and more concise.)
+
+Performance:
+json_decode_sane() calls native json_decode() first, and only falls back to findJsonErrors() if parsing fails. This ensures negligible overhead on valid JSON and detailed feedback only when needed.
+
