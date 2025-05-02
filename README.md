@@ -28,3 +28,10 @@ You can also use findJsonErrors($s) directly to perform a syntax check of a JSON
 Performance:
 json_decode_sane() calls native json_decode() first, and only falls back to findJsonErrors() if parsing fails. This ensures negligible overhead on valid JSON and detailed feedback only when needed.
 
+## License
+
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](./LICENSE) file for details.
+
+## Author
+
+Developed by Robert Bankwitz.
