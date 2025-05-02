@@ -1,16 +1,24 @@
 Super easy to use:
 Just place the file json_decode_sane.php into your codebase and include it with:
+
 require_once('json_decode_sane.php');
+
 Alternatively, you can copy the functions json_decode_sane and findJsonErrors directly into your script.
 
 Then, simply call:
+
 json_decode_sane($s);
+
 Where $s is the JSON string you want to parse. It behaves like json_decode, returning the parsed result, but throws an exception with helpful information if parsing fails.
 
 The exception message includes:
+
 A clear explanation of the error,
+
 The exact line number and character position of the error,
+
 The full line of text where the error occurred,
+
 A short surrounding context, helping you debug quickly and precisely.
 
 Bonus:
